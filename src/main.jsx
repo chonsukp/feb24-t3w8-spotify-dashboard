@@ -3,11 +3,17 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { ThemeContextProvider } from './contexts/ThemeContextProvider.jsx'
+import { SpotifyAuthProvider } from './contexts/SpotifyAuthProvider.jsx'
+import { SpotifyProfileProvider } from './contexts/SpotifyProfileProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeContextProvider>
-      <App />
+      <SpotifyAuthProvider>
+        <SpotifyProfileProvider>
+        <App />
+        </SpotifyProfileProvider>
+      </SpotifyAuthProvider>
     </ThemeContextProvider>    
   </StrictMode>,
 )
